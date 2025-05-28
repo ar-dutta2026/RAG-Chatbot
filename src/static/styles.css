@@ -1,0 +1,143 @@
+/* ================================
+   Global Styles & Layout
+   ================================ */
+
+/* Set full-height background and center the chat container */
+body, html {
+  margin: 0; padding: 0;
+  height: 100%;
+  background: #E5E5EA;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================================
+   Chat Container & Header
+   ================================ */
+
+/* Keyframe for subtle floating animation */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+
+/* Main chat container box */
+.chat-container {
+  width: 100%; max-width: 600px; max-height: 90vh;
+  display: flex; flex-direction: column;
+  background: #FFF; border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Header bar at top of chat window */
+.chat-header {
+  padding: 16px; background: #F7F7F7;
+  border-bottom: 1px solid #C7C7CC;
+  text-align: center; font-size: 18px; color: #000;
+}
+
+/* ================================
+   Chat Window & Messages
+   ================================ */
+
+/* Message display area, scrollable */
+.chat-window {
+  flex: 1; padding: 16px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 8px;
+  background: #E5E5EA;
+}
+
+/* Base message styling */
+.message {
+  max-width: 72%; padding: 12px 18px;
+  position: relative; line-height: 1.4; word-wrap: break-word;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Fade-in animation for new messages */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* User message bubble styling (blue, right-aligned) */
+.message.user {
+  background: #007AFF; color: #FFF;
+  align-self: flex-end;
+  border-radius: 18px 18px 4px 18px;
+}
+
+/* Assistant message bubble styling (gray, left-aligned) */
+.message.assistant {
+  background: #F0F0F0; color: #000;
+  align-self: flex-start;
+  border-radius: 18px 18px 18px 4px;
+}
+
+/* ================================
+   Input Bar & Send Button
+   ================================ */
+
+/* Container for text input and send button */
+.chat-input {
+  display: flex; padding: 12px;
+  background: #F7F7F7; border-top: 1px solid #C7C7CC;
+}
+
+/* Input box styling */
+.chat-input input {
+  flex: 1; padding: 12px 16px;
+  border: none; border-radius: 18px;
+  background: #FFF; font-size: 16px;
+  outline: none; margin-right: 8px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Send button styles */
+.chat-input button {
+  padding: 12px 20px; background: #007AFF;
+  color: #FFF; border: none; border-radius: 18px;
+  font-size: 16px; cursor: pointer; outline: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover state for send button */
+.chat-input button:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #005FCC;
+}
+
+/* Click (active) state for send button */
+.chat-input button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* Disabled state for send button */
+.chat-input button:disabled {
+  background: #A0A0A0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ================================
+   Typing Indicator Cursor
+   ================================ */
+
+/* Blinking cursor animation for typing simulation */
+.typing-cursor {
+  display: inline-block;
+  width: 2px; background: #000;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50%      { opacity: 0; }
+}

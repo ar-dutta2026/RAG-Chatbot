@@ -1,0 +1,6 @@
+flask
+sentence-transformers
+chromadb
+datasets
+uvicorn
+openai

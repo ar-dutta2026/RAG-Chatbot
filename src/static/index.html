@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Root HTML document declaration -->
+<html lang="en">
+<head>
+  <!-- Required meta tags for character encoding and responsive layout -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Page title that appears on browser tabs -->
+  <title>Chatbot</title>
+
+  <!-- Link to external stylesheet for styling the chatbot interface -->
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <!-- Container for the entire chat interface -->
+  <div class="chat-container">
+
+    <!-- Header section with the chatbot title -->
+    <div class="chat-header">Chatbot</div>
+
+    <!-- Message window where chat messages are displayed -->
+    <div id="chat-window" class="chat-window"></div>
+
+    <!-- Input section for the user to type queries -->
+    <div class="chat-input">
+      <!-- Text input for the user's question -->
+      <input type="text" id="query" placeholder="Type your question..." autocomplete="off" />
+      
+      <!-- Send button, initially disabled until input is present -->
+      <button id="send-btn" disabled>Send</button>
+    </div>
+  </div>
+
+  <!-- Include the main client-side script that handles frontend logic -->
+  <script src="/static/script.js"></script>
+</body>
+</html>
