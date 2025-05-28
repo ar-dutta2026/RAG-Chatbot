@@ -62,7 +62,7 @@ Once running, open your browser to http://127.0.0.1:5000 (localhost) to chat awa
 - Accepts JSON data:
   ```json
   {
-    "history": [{"role": "user", "content": "..."}, ...],
+    "history": [{"role": "user", "content": "..."}, ... ],
     "query": "User question here"
   }
   ```
@@ -98,9 +98,8 @@ Once running, open your browser to http://127.0.0.1:5000 (localhost) to chat awa
 - LLM used: **OpenAI's `gpt-3.5-turbo`** instance.
 - Sampling parameters:
   ```python
-  temperature = 0.7
+  temperature = 0.8
   top_p = 0.9
-  max_tokens = 512
   ```
 - Returns a single completion as the Chatbot's response.
 
@@ -140,15 +139,15 @@ Response returned and rendered with animation
 - **Why**: Keeps backend simple and avoids session management or databases. Enables fast prototyping.
 - **Tradeoff**: No persistence across page reloads unless localStorage is used. Model "remembers" history only if it’s sent with every new query.
 
-### 5. **Assistant Personality & Guardrails**
-- **Decision**: Added a system prompt guardrail that explicitly prevents the assistant from using any information outside the retrieved context.
+### 5. **Chabot Personality & Guardrails**
+- **Decision**: Added a system prompt guardrail that explicitly prevents the Chatbot from using any information outside the retrieved context.
 - **Why**: This enforces strict RAG compliance and prevents false positives when the dataset lacks coverage.
-- **Tradeoff**: The assistant may respond with “I only have access to the RAG Mini Wikipedia Dataset” even for general knowledge questions it could otherwise answer correctly.
+- **Tradeoff**: The Chatbot may not use its external capabilities to answer question, limiting it to the Wikipedia dataset.
 
 ### 6. **Frontend UX Enhancements**
 - **Decision**: Implemented:
-  - A typewriter animation effect for assistant responses.
+  - A typewriter animation effect for Chatbot's responses.
   - A floating iMessage-style UI with rounded chat bubbles.
   - A pre-seeded greeting message upon page load.
 - **Why**: These features make the experience more engaging and intuitive.
-- **Tradeoff**: Typewriter rendering introduces a minor delay for assistant responses and requires careful DOM manipulation.
+- **Tradeoff**: Typewriter rendering introduces a minor delay for Chatbot's responses and requires careful DOM manipulation.
